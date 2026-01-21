@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { getAuth, GoogleAuthProvider, signInAnonymously, signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import {Button, Container, Form, SubContainer, Title }from './styledComp'
 
 function SignUp() {
 
@@ -26,17 +27,38 @@ function SignUp() {
             })
     }
 
+    const SignInAnonymously = async() =>{
+        setAuthing(true)
+
+        signInAnonymously(auth)
+            .then(response =>{
+                console.log(response.user.uid)
+                navigate('/')
+            } )
+            .catch(error =>{
+                console.log(error)
+                setAuthing(false)
+            })
+    }
+
   return (
-    <>
-        <div>Sign Up</div>
-        {error && <div>{error}</div>}
-        <button onClick={SignInWithGoogle} disabled={authing}>
-            login with google
-        </button>
-        <div onClick={() => navigate('/login')}>
-            Already have an account? Sign in
-        </div>
-    </>
+    <Container>
+        <SubContainer>
+            <Title>Sign Up</Title>
+            <Form>
+                {error && <div>{error}</div>}
+                <Button onClick={SignInWithGoogle} disabled={authing}>
+                    Sign Up with google
+                </Button>
+                <Button onClick={SignInAnonymously} disabled={authing}>
+                    Sign Up Anonymously
+                </Button>
+                <div onClick={() => navigate('/login')}>
+                    Already have an account? Sign in
+                </div>
+            </Form>
+        </SubContainer>
+    </Container>
     
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { getAuth, GoogleAuthProvider, signInAnonymously, signInWithPopup } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import { Button, Container, SubContainer, Title } from './styledComp'
 
 function Login() {
     const auth = getAuth()
@@ -23,29 +24,27 @@ function Login() {
             })
     }
   return (
-    <>
-        <div>
+    <Container>
+        <SubContainer>
             <div>
-                <div>
-                    <h3>
-                        Login
-                    </h3>
-                    <p>Welcome Back! Please Enter Your Details</p>
-                </div>
+                <Title>
+                    Login
+                </Title>
+                <p>Welcome Back!</p>
             </div>
-        </div>
-        {error && <div>{error}</div>}
+            {error && <div>{error}</div>}
 
-        <button onClick={SignInWithGoogle} disabled={authing}>
-            login with google
-        </button>
+            <Button onClick={SignInWithGoogle} disabled={authing}>
+                Login with google
+            </Button>
 
-        <div onClick={()=> navigate('/signup')}>
-            <p>
-                Don't have an account?
-            </p>
-        </div>
-    </>
+            <div onClick={()=> navigate('/signup')}>
+                <p>
+                    Don't have an account?
+                </p>
+            </div>
+        </SubContainer>
+    </Container>
   )
 }
 
