@@ -5,7 +5,7 @@ import './index.css'
 import Login from './Login.tsx'
 import SignUp from './Signup.tsx'
 import AuthRoute from './authRoute.tsx'
-import { BrowserRouter, Route,Router, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
 
 

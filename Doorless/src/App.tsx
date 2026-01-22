@@ -1,9 +1,10 @@
-import { useState } from 'react'
+
+import LogoGrid from './company-display/logoGrid'
 
 function App() {
 
   return (
-    <h1>You are currently logged in.</h1>
+    <LogoGrid></LogoGrid>
   )
 }
 

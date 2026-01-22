@@ -46,3 +46,6 @@ export const Title = styled.h2`
     margin-bottom: 1rem;
     text-align: center;
 `; 
+export const SubTitle = styled.h2`
+    font-size: 15px;
+`; 
