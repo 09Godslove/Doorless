@@ -7,6 +7,7 @@ import SignUp from './Signup.tsx'
 import AuthRoute from './authRoute.tsx'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { initializeApp } from "firebase/app";
+import CompanyDetails from './company-display/company-info.tsx'
 
 
 const firebaseConfig = {
@@ -29,6 +30,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='*' element={<Navigate to= '/'/> }/>
+        <Route path='/company-info' element={<CompanyDetails />}/>
       </Routes>
     </BrowserRouter>
   </StrictMode>,
